@@ -1,0 +1,1 @@
+# 1.6 Managing Files and Imagess

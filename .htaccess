@@ -1,0 +1,14 @@
+RewriteEngine On
+RewriteBase /
+
+# Redirecting old docs.pivotx.net links (which was used in the PivotX GUI).
+RewriteCond %{QUERY_STRING} id=using_apache_s_mod_rewrite
+RewriteRule ^(index.php)?$ page/1-14/? [L,R=301]
+RewriteCond %{QUERY_STRING} id=dealing_with_safe_mode
+RewriteRule ^(index.php)?$ page/app-e/? [L,R=301]
+
+# Clean URL - /page/somename/ in stead of /index.php?page=somename
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^page/([a-z0-9_-]+)/?$ index.php?page=$1 [L,QSA]
+
